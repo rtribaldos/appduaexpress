@@ -6,6 +6,15 @@ page-login {
     background: #eee !important;
 
   }
+
+  .logo {
+    display: inline-block;
+    margin: 0 auto;
+    min-width: 400px;
+    min-height: 100px;
+    background: #eee;
+    contain: strict;
+  }
   .wrapper {
 	     margin-top: 80px;
        margin-bottom: 80px;
