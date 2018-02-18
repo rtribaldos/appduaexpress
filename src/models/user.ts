@@ -1,4 +1,4 @@
-//import { Profile } from './global.enum';
+import { Profile } from './global.enum';
 
 export class User {
     email: string;
@@ -13,7 +13,7 @@ export class User {
     postalCode: string;
     city: string;
     state: string;
-    //profile: Profile;
+    profile: Profile;
 
 }
 
