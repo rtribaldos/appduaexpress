@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { User } from '../../models/user';
+import { RegisterPage } from '../register/register';
 
 
 /**
@@ -50,7 +51,9 @@ export class LoginPage {
   }
 
   signin(){
-    this.auth.registerUser(this.user.email,this.user.password).then((user) => {
+    this.navCtrl.push(RegisterPage);
+
+ /*   this.auth.registerUser(this.user.email,this.user.password).then((user) => {
       // El usuario se ha creado correctamente
     })
     .catch(err=>{
@@ -61,7 +64,7 @@ export class LoginPage {
       });
       alert.present();
     })
-
+*/
   }
 
 }
