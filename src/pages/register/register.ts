@@ -48,7 +48,7 @@ export class RegisterPage {
 
 	let alert = this.alertCtrl.create({
         title: 'Usuario Creado',
-        subTitle: "Usuario Crerado",
+        subTitle: "Usuario Creado",
         buttons: ['Aceptar']
       });
       alert.present();
