@@ -7,12 +7,71 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>register</ion-title>
+    <ion-title>Formulario de Registro</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+<div class="wrapper">
+     <form class="form-register">
+       <ion-row>
+         <ion-col>
+           <ion-list inset>
+
+            <ion-item>
+               <ion-input class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required></ion-input>
+             </ion-item>
+
+            <ion-item>
+               <ion-input class="form-control" placeholder="Nombre" [(ngModel)]="user.name" name="name" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="CIF" [(ngModel)]="user.cif" name="cif" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Empresa" [(ngModel)]="user.company" name="company" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Direccion" [(ngModel)]="user.address" name="address" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Codigo Postal" [(ngModel)]="user.postalCode" name="postalCode" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Ciudad" [(ngModel)]="user.city" name="city" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Provincia" [(ngModel)]="user.state" name="state" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Telefono" [(ngModel)]="user.tel" name="tel" type="text" autocapitalize="off" required></ion-input>
+             </ion-item>
+
+           </ion-list>
+         </ion-col>
+       </ion-row>
+
+       <ion-row>
+         <ion-col class="signup-col">
+           <button ion-button class="register-btn" block clear  (click)="registerUser()">Registrarse</button>
+         </ion-col>
+       </ion-row>
+
+     </form>
+   </div>
 
 </ion-content>

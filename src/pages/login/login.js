@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { User } from '../../models/user';
+import { RegisterPage } from '../register/register';
 /**
  * Generated class for the LoginPage page.
  *
@@ -43,18 +44,19 @@ var LoginPage = /** @class */ (function () {
         });
     };
     LoginPage.prototype.signin = function () {
-        var _this = this;
-        this.auth.registerUser(this.user.email, this.user.password).then(function (user) {
-            // El usuario se ha creado correctamente
-        })
-            .catch(function (err) {
-            var alert = _this.alertCtrl.create({
-                title: 'Error',
-                subTitle: err.message,
-                buttons: ['Aceptar']
-            });
-            alert.present();
-        });
+        this.navCtrl.push(RegisterPage);
+        /*   this.auth.registerUser(this.user.email,this.user.password).then((user) => {
+             // El usuario se ha creado correctamente
+           })
+           .catch(err=>{
+             let alert = this.alertCtrl.create({
+               title: 'Error',
+               subTitle: err.message,
+               buttons: ['Aceptar']
+             });
+             alert.present();
+           })
+       */
     };
     LoginPage = __decorate([
         IonicPage(),

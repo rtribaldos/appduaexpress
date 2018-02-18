@@ -13,6 +13,7 @@ import { MyApp } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth/auth';
+import { RegisterPage } from '../pages/register/register';
 export var firebaseConfig = {
     apiKey: "AIzaSyCb7no2ZguQECh7appTgDkrLOrwcW5_9x4",
     authDomain: "duaexpress-online.firebaseapp.com",
@@ -27,7 +28,8 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         NgModule({
             declarations: [
-                MyApp
+                MyApp,
+                RegisterPage
             ],
             imports: [
                 BrowserModule,
@@ -37,7 +39,8 @@ var AppModule = /** @class */ (function () {
             ],
             bootstrap: [IonicApp],
             entryComponents: [
-                MyApp
+                MyApp,
+                RegisterPage
             ],
             providers: [
                 StatusBar,
