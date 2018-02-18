@@ -25,6 +25,8 @@ export class RegisterPage {
     public alertCtrl : AlertController
   ) {
     this.user = new User();
+    this.user.email = navParams.get("emailPresent");
+    this.user.password = navParams.get("passwordPresent");
   }
 
   ionViewDidLoad() {
