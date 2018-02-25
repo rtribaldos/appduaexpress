@@ -17,11 +17,24 @@
 
  .form-content {
     background: #eee !important;
- }
- .wrapper {
+
+    .invalid {
+     color: #ea6153;
+ 	}
+
+ 	.wrapper {
      margin-top: 40px;
      margin-bottom: 80px;
+ 	}
  }
+
+.form-app {
+    max-width: 900px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
 
  .form-control {
 	 position: relative;
@@ -45,4 +58,7 @@
 	    border-top-left-radius: 0;
 	    border-top-right-radius: 0;
 	}
+
 }
+
+

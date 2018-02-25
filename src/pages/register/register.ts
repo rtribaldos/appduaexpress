@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { User } from '../../models/user';
 
@@ -17,23 +18,44 @@ import { User } from '../../models/user';
 })
 export class RegisterPage {
 
-  user : User
+  user : User;
+  registerForm : FormGroup;
+   submitAttempt: boolean = false;
+
   constructor(
   	public navCtrl: NavController, 
   	public navParams: NavParams,
   	public auth : AuthProvider,
-    public alertCtrl : AlertController
+    public alertCtrl : AlertController,
+    public formBuilder: FormBuilder
   ) {
-    this.user = new User();
+    /*this.user = new User();
     this.user.email = navParams.get("emailPresent");
-    this.user.password = navParams.get("passwordPresent");
+    this.user.password = navParams.get("passwordPresent");*/
+
+    let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+  
+    this.registerForm = formBuilder.group({
+        email: [navParams.get("emailPresent"), Validators.compose([Validators.maxLength(50), Validators.pattern(emailRegex), Validators.required])],
+        password: [navParams.get("passwordPresent"), Validators.compose([Validators.maxLength(30), Validators.required])],
+        name: ['', Validators.compose([Validators.maxLength(70), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+        cif: ['', Validators.compose([Validators.maxLength(9), Validators.pattern('[a-zA-Z]{1}[0-9]{8}'), Validators.required])],
+        company: ['', Validators.compose([Validators.maxLength(50),  Validators.required])],
+        address: ['', Validators.compose([Validators.maxLength(70),  Validators.required])],
+        postalCode: ['', Validators.compose([Validators.maxLength(5), Validators.pattern('[0-9]{5}'), Validators.required])],
+        city: ['', Validators.compose([Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+        state: ['', Validators.compose([Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+        tel: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9\- ]*'), Validators.required])],
+      });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  registerUser(){
+    registerUser(){
+
+      //this.submitAttempt = true;
 
   	  /*this.auth.registerUser(this.user).then((user) => {
       // El usuario se ha creado correctamente
@@ -47,14 +69,21 @@ export class RegisterPage {
       alert.present();
     })
 	*/
-
-	let alert = this.alertCtrl.create({
-        title: 'Usuario Creado',
+  if (this.registerForm.valid){
+    let alert = this.alertCtrl.create({
+        title: 'OK',
         subTitle: "Usuario Creado",
         buttons: ['Aceptar']
-      });
-      alert.present();
+          });
+          alert.present();
+  }else{
+    let alert = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: "Complete todos los datos del formulario correctamente",
+        buttons: ['Aceptar']
+          });
+          alert.present();
   }
-
-
+	
+}
 }

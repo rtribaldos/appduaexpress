@@ -12,16 +12,82 @@
 
 </ion-header>
 
-
+<p *ngIf="submitAttempt" style="color: #ea6153;">Por favor, rellena todos los campos corectamente</p>
 <ion-content padding class="form-content">
 
 <div class="wrapper">
-     <form class="form-register">
+     <form class="form-app" [formGroup]="registerForm">
        <ion-row>
          <ion-col>
            <ion-list inset>
 
             <ion-item>
+               <ion-input class="form-control" placeholder="Email" formControlName="email" type="text" autocapitalize="off" maxlength="50"
+               [class.invalid]="!registerForm.controls.email.valid && (registerForm.controls.email.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item class="invalid" *ngIf="!registerForm.controls.email.valid  && (registerForm.controls.email.dirty || submitAttempt)">
+                <p>Por favor, inserta un email válido</p>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Password" type="password" formControlName="password"
+               [class.invalid]="!registerForm.controls.password.valid && (registerForm.controls.password.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+            <ion-item>
+               <ion-input class="form-control" placeholder="Nombre" formControlName="name" type="text" autocapitalize="off" maxlength="70"
+               [class.invalid]="!registerForm.controls.name.valid && (registerForm.controls.name.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="CIF" formControlName="cif" type="text" autocapitalize="off" maxlength="9"
+               [class.invalid]="!registerForm.controls.cif.valid && (registerForm.controls.cif.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item class="invalid" *ngIf="!registerForm.controls.postalCode.valid  && (registerForm.controls.postalCode.dirty || submitAttempt)">
+                <p>Por favor, inserta un CIF válido</p>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Empresa" formControlName="company" type="text" autocapitalize="off" maxlength="50"
+               [class.invalid]="!registerForm.controls.company.valid && (registerForm.controls.company.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Direccion" formControlName="address" type="text" autocapitalize="off" maxlength="70"
+               [class.invalid]="!registerForm.controls.address.valid && (registerForm.controls.address.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Código Postal" formControlName="postalCode" type="text" autocapitalize="off" maxlength="5"
+               [class.invalid]="!registerForm.controls.postalCode.valid && (registerForm.controls.postalCode.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item class="invalid" *ngIf="!registerForm.controls.postalCode.valid  && (registerForm.controls.postalCode.dirty || submitAttempt)">
+                <p>Por favor, inserta un código postal válido</p>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Ciudad" formControlName="city" type="text" autocapitalize="off" maxlength="50"
+               [class.invalid]="!registerForm.controls.city.valid && (registerForm.controls.city.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Provincia" formControlName="state" type="text" autocapitalize="off" maxlength="50"
+               [class.invalid]="!registerForm.controls.state.valid && (registerForm.controls.state.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item>
+               <ion-input class="form-control" placeholder="Teléfono" formControlName="tel" type="text" autocapitalize="off" maxlength="30"
+               [class.invalid]="!registerForm.controls.tel.valid && (registerForm.controls.tel.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item class="invalid" *ngIf="!registerForm.controls.tel.valid  && (registerForm.controls.tel.dirty || submitAttempt)">
+                <p>Por favor, inserta un número e teléfono válido</p>
+             </ion-item>
+
+            <!--<ion-item>
                <ion-input class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email" type="text" autocapitalize="off" required></ion-input>
              </ion-item>
 
@@ -59,7 +125,7 @@
 
              <ion-item>
                <ion-input class="form-control" placeholder="Telefono" [(ngModel)]="user.tel" name="tel" type="text" autocapitalize="off" required></ion-input>
-             </ion-item>
+             </ion-item>-->
 
            </ion-list>
          </ion-col>
