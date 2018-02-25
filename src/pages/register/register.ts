@@ -20,7 +20,7 @@ export class RegisterPage {
 
   user : User;
   registerForm : FormGroup;
-   submitAttempt: boolean = false;
+  submitAttempt: boolean = false;
 
   constructor(
   	public navCtrl: NavController, 
@@ -53,8 +53,10 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-    registerUser(){
+  registerUser(){
 
+      console.log("Registering user...");
+      this.submitAttempt = true;
       //this.submitAttempt = true;
 
   	  /*this.auth.registerUser(this.user).then((user) => {
@@ -70,6 +72,7 @@ export class RegisterPage {
     })
 	*/
   if (this.registerForm.valid){
+    console.log("Register user " + this.registerForm.value.email + " OK");
     let alert = this.alertCtrl.create({
         title: 'OK',
         subTitle: "Usuario Creado",
@@ -77,6 +80,7 @@ export class RegisterPage {
           });
           alert.present();
   }else{
+    console.log("Register user KO");
     let alert = this.alertCtrl.create({
         title: 'Error',
         subTitle: "Complete todos los datos del formulario correctamente",

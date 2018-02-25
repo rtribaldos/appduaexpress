@@ -27,7 +27,7 @@
              </ion-item>
 
              <ion-item class="invalid" *ngIf="!registerForm.controls.email.valid  && (registerForm.controls.email.dirty || submitAttempt)">
-                <p>Por favor, inserta un email válido</p>
+                <p style="color: #ea6153;">Por favor, inserta un email válido</p>
              </ion-item>
 
              <ion-item>
@@ -35,9 +35,17 @@
                [class.invalid]="!registerForm.controls.password.valid && (registerForm.controls.password.dirty || submitAttempt)"></ion-input>
              </ion-item>
 
-            <ion-item>
+             <ion-item class="invalid" *ngIf="!registerForm.controls.password.valid  && (registerForm.controls.password.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Campo password es requerido</p>
+             </ion-item>
+
+             <ion-item>
                <ion-input class="form-control" placeholder="Nombre" formControlName="name" type="text" autocapitalize="off" maxlength="70"
                [class.invalid]="!registerForm.controls.name.valid && (registerForm.controls.name.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item class="invalid" *ngIf="!registerForm.controls.name.valid  && (registerForm.controls.name.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Campo nombre es requerido</p>
              </ion-item>
 
              <ion-item>
@@ -45,8 +53,8 @@
                [class.invalid]="!registerForm.controls.cif.valid && (registerForm.controls.cif.dirty || submitAttempt)"></ion-input>
              </ion-item>
 
-             <ion-item class="invalid" *ngIf="!registerForm.controls.postalCode.valid  && (registerForm.controls.postalCode.dirty || submitAttempt)">
-                <p>Por favor, inserta un CIF válido</p>
+             <ion-item class="invalid" *ngIf="!registerForm.controls.cif.valid  && (registerForm.controls.cif.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Por favor, inserta un CIF válido</p>
              </ion-item>
 
              <ion-item>
@@ -54,9 +62,17 @@
                [class.invalid]="!registerForm.controls.company.valid && (registerForm.controls.company.dirty || submitAttempt)"></ion-input>
              </ion-item>
 
+             <ion-item class="invalid" *ngIf="!registerForm.controls.company.valid  && (registerForm.controls.company.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Campo empresa es requerido</p>
+             </ion-item>
+
              <ion-item>
                <ion-input class="form-control" placeholder="Direccion" formControlName="address" type="text" autocapitalize="off" maxlength="70"
                [class.invalid]="!registerForm.controls.address.valid && (registerForm.controls.address.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item class="invalid" *ngIf="!registerForm.controls.address.valid  && (registerForm.controls.address.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Campo dirección es requerido</p>
              </ion-item>
 
              <ion-item>
@@ -65,7 +81,7 @@
              </ion-item>
 
              <ion-item class="invalid" *ngIf="!registerForm.controls.postalCode.valid  && (registerForm.controls.postalCode.dirty || submitAttempt)">
-                <p>Por favor, inserta un código postal válido</p>
+                <p style="color: #ea6153;">Por favor, inserta un código postal válido</p>
              </ion-item>
 
              <ion-item>
@@ -73,9 +89,17 @@
                [class.invalid]="!registerForm.controls.city.valid && (registerForm.controls.city.dirty || submitAttempt)"></ion-input>
              </ion-item>
 
+             <ion-item class="invalid" *ngIf="!registerForm.controls.city.valid  && (registerForm.controls.city.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Campo ciudad es requerido</p>
+             </ion-item>
+
              <ion-item>
                <ion-input class="form-control" placeholder="Provincia" formControlName="state" type="text" autocapitalize="off" maxlength="50"
                [class.invalid]="!registerForm.controls.state.valid && (registerForm.controls.state.dirty || submitAttempt)"></ion-input>
+             </ion-item>
+
+             <ion-item class="invalid" *ngIf="!registerForm.controls.state.valid  && (registerForm.controls.state.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Campo provincia es requerido</p>
              </ion-item>
 
              <ion-item>
@@ -84,7 +108,7 @@
              </ion-item>
 
              <ion-item class="invalid" *ngIf="!registerForm.controls.tel.valid  && (registerForm.controls.tel.dirty || submitAttempt)">
-                <p>Por favor, inserta un número e teléfono válido</p>
+                <p style="color: #ea6153;">Por favor, inserta un número de teléfono válido</p>
              </ion-item>
 
             <!--<ion-item>
