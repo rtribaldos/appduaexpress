@@ -44,7 +44,10 @@ var LoginPage = /** @class */ (function () {
         });
     };
     LoginPage.prototype.signin = function () {
-        this.navCtrl.push(RegisterPage);
+        this.navCtrl.push(RegisterPage, {
+            emailPresent: this.user.email,
+            passwordPresent: this.user.password
+        });
         /*   this.auth.registerUser(this.user.email,this.user.password).then((user) => {
              // El usuario se ha creado correctamente
            })

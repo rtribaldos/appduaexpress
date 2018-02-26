@@ -22,7 +22,11 @@ export class AuthProvider {
   registerUser(email:string, password:string){
     return this.afAuth.auth.createUserWithEmailAndPassword( email, password)
     .then((res)=>{
-     // El usuario se ha creado correctamente.
+       let user = {
+          email:res.email,
+          uid:res.uid
+        };
+        window.localStorage.setItem('user',JSON.stringify(user));
     })
     .catch(err=>Promise.reject(err))
  }
