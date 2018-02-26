@@ -12,6 +12,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthProvider } from '../providers/auth/auth';
 import { RegisterPage } from '../pages/register/register';
 
+import { UserService } from '../services/user.services';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCb7no2ZguQECh7appTgDkrLOrwcW5_9x4",
    authDomain: "duaexpress-online.firebaseapp.com",

@@ -5,6 +5,7 @@ import { AngularFireList, AngularFireDatabase, AngularFireObject} from 'angularf
 import { AuthProvider } from '../../providers/auth/auth';
 import { User } from '../../models/user';
 import { Profile} from '../../models/global.enum';
+//import { UserService } from '../../services/user.services';
 
 /**
  * Generated class for the RegisterPage page.
@@ -25,7 +26,7 @@ export class RegisterPage {
 
   registerForm : FormGroup;
   submitAttempt: boolean = false;
-  localUser: any;
+  authUser: any;
 
   constructor(
   	public navCtrl: NavController, 
@@ -33,7 +34,8 @@ export class RegisterPage {
   	public auth : AuthProvider,
     public alertCtrl : AlertController,
     public formBuilder: FormBuilder,
-    public database: AngularFireDatabase
+    public database: AngularFireDatabase/*,
+    public userService : UserService*/
   ) {
     /*this.user = new User();
     this.user.email = navParams.get("emailPresent");
@@ -68,23 +70,11 @@ export class RegisterPage {
         this.auth.registerUser(this.registerForm.value.email,this.registerForm.value.password).then(
         (success) => {
           console.log(success);
-          this.localUser = JSON.parse(window.localStorage.getItem('user'));
-
-          let user = new User();
-          user.email = this.localUser.email;
-          user.active = true;
-          user.address = this.registerForm.value.address;
-          user.cif = this.registerForm.value.cif;
-          user.city = this.registerForm.value.city;
-          user.company = this.registerForm.value.company;
-          user.name = this.registerForm.value.name;
-          user.postalCode = this.registerForm.value.postalCode;
-          user.state = this.registerForm.value.state;
-          user.tel = this.registerForm.value.tel;
+          this.authUser = JSON.parse(window.localStorage.getItem('user'));
 
           this.users.push({
-              uid : this.localUser.uid,
-              email : this.localUser.email,
+              uid : this.authUser.uid,
+              email : this.authUser.email,
               active : true,
               address : this.registerForm.value.address,
               cif : this.registerForm.value.cif,

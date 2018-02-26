@@ -3,7 +3,7 @@ import { Profile } from './global.enum';
 export class User {
     email: string;
     password: string;
-
+    uid: String;
     active: boolean;
     name: string;
     cif: string;
