@@ -27,6 +27,7 @@ export class RegisterPage {
   registerForm : FormGroup;
   submitAttempt: boolean = false;
   authUser: any;
+  user: AngularFireObject<any>;
 
   constructor(
   	public navCtrl: NavController, 
@@ -73,9 +74,11 @@ export class RegisterPage {
         (success) => {
           console.log(success);
           this.authUser = JSON.parse(window.localStorage.getItem('user'));
+          this.user = this.userService.getUserById(this.authUser.uid);
+          
 
-          this.users.push({
-              uid : this.authUser.uid,
+          this.user.update({
+              
               email : this.authUser.email,
               active : true,
               address : this.registerForm.value.address,
@@ -86,8 +89,8 @@ export class RegisterPage {
               postalCode : this.registerForm.value.postalCode,
               state : this.registerForm.value.state,
               tel : this.registerForm.value.tel
-        });
 
+        });
 
         });
 
