@@ -5,7 +5,7 @@ import { AngularFireList, AngularFireDatabase, AngularFireObject} from 'angularf
 import { AuthProvider } from '../../providers/auth/auth';
 import { User } from '../../models/user';
 import { Profile} from '../../models/global.enum';
-//import { UserService } from '../../services/user.services';
+import { UserService } from '../../services/user.services';
 
 /**
  * Generated class for the RegisterPage page.
@@ -34,13 +34,14 @@ export class RegisterPage {
   	public auth : AuthProvider,
     public alertCtrl : AlertController,
     public formBuilder: FormBuilder,
-    public database: AngularFireDatabase/*,
-    public userService : UserService*/
+    public database: AngularFireDatabase,
+    public userService : UserService
   ) {
     /*this.user = new User();
     this.user.email = navParams.get("emailPresent");
     this.user.password = navParams.get("passwordPresent");*/
-    this.users = this.database.list('/users');
+    //this.users = this.database.list('/users');
+    this.users = userService.getUsers();
 
     let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
   
@@ -64,6 +65,7 @@ export class RegisterPage {
 
 
   registerUser(){
+    this.submitAttempt = true;
 
     if (this.registerForm.valid){
 

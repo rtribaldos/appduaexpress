@@ -45,7 +45,8 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    UserService
   ]
 })
 export class AppModule {}
